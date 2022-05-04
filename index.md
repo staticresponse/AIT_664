@@ -1,4 +1,12 @@
-## Welcome to GitHub Pages
+# AIT 664 DL1 - Obesity Study
+### Eun Lee, Mike Lewis, Nitin Panwar, and Paul Buckley
+<hr/>
+
+
+### About the data
+Our data comes directly from the CDC. We focus on leveraging the Behavioral Risk Factor Surveillance data. This department was initially established in 1984 and currently collects data on all 50 states. Each year, 400,000 or more adults are interviewed and the data is aggregated by state into individual stratifications. The dataset unfortunately only provides a single stratification per record. This means that a record can describe an income group, age group, or ethnicitic group. The data is further divided into a category; physical activity, overweight/obesity, and nutritional habits.
+
+#### Data Cleaning and Assumptions
 
 You can use the [editor on GitHub](https://github.com/staticresponse/AIT_664/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
