@@ -8,13 +8,36 @@ Our data comes directly from the CDC. We focus on leveraging the Behavioral Risk
 
 #### Data Cleaning and Assumptions
 
-You can use the [editor on GitHub](https://github.com/staticresponse/AIT_664/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The BRFS set contained several columns that contained the same information but in a slightly different format (example... QuestionID and Question described the aspect of the record - obesity/overweight, nutritional habits, physical activity habits. We chose to drop several columns from the dataset because of this. Additionally, our study focuses on the 50 states but our dataset included the territories as well. We droped all records that focused on the territories. Finally, our machine learning algoritms focused on records that were based on a statistically signifigant sample size (drop records with < 100 samples).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Since our study is primarily done using BI tools and a cloud hosted spark cluster, we saved our clean data into a csv file. 
 
-### Markdown
+# Machine Learning and Modeling
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+We leveraged spark on databricks for the ML and modeling of this study. THe sample size distribution of our dataset. Our dataset was skewed slightly to larger sample sizes.
+
+ - Number of Records : 23925
+ - mean sample size : 2058
+ - stddeviation : 2461
+ - minimum : 101 NOTE: we dropped statistically insigfigant records so 101 is our smallest possible sample size
+ - 25% : 625
+ - 50% : 1236
+ - 75% : 2496
+ - Maximum: 33,186
+
+Our dataset was narrowed down to just question 36 which concentrates on the percentage of people who have an Obese classification. The resulting dataset had 12704 records which is about 1/2 of the overall BRFS dataset. We then conducted a 75-25 split of the dataset so that we could build and train our model. We focused on the stratification field as our analysis point. We then built a random forest model based on the sample size and value for the percentage of the people who have the obese classification. There were a total of 28 unique stratifications possible in our dataset. The model attempted to predict which stratification the percentages and sample sizes would be associated with. Our initial prediction had a very poor accuracy rating of about 26%. We had to revisit this several times and tune the model. 
+
+Obese Dataset stats 
+ - Number of Records : 11963
+ - mean sample size : 2058
+ - stddeviation : 2461
+ - minimum : 101
+ - 25% : 625
+ - 50% : 1236
+ - 75% : 2496
+ - Maximum: 33,186
+
+
 
 ```markdown
 Syntax highlighted code block
